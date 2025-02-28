@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu } from "lucide-react"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function ClientHeader() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
     { href: "#about", label: "About" },
@@ -20,29 +20,33 @@ export default function ClientHeader() {
     { href: "#employers", label: "For Employers" },
     { href: "#job-seekers", label: "For Job Seekers" },
     { href: "#contact", label: "Contact" },
-  ]
+  ];
 
   const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault()
-    const href = e.currentTarget.getAttribute("href")
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute("href");
     if (href) {
       if (href === "#") {
-        window.scrollTo({ top: 0, behavior: "smooth" })
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        const targetId = href.replace(/.*#/, "")
-        const elem = document.getElementById(targetId)
+        const targetId = href.replace(/.*#/, "");
+        const elem = document.getElementById(targetId);
         elem?.scrollIntoView({
           behavior: "smooth",
-        })
+        });
       }
     }
-    if (isOpen) setIsOpen(false)
-  }
+    if (isOpen) setIsOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link href="#" onClick={smoothScroll} className="flex items-center space-x-2">
+        <Link
+          href="#"
+          onClick={smoothScroll}
+          className="flex items-center space-x-2"
+        >
           <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-teal-500 flex items-center justify-center text-white font-bold text-xl">
             K
           </div>
@@ -71,7 +75,9 @@ export default function ClientHeader() {
           >
             Post a Job
           </Button>
-          <Button className="hidden lg:inline-flex bg-[#005B94] hover:bg-[#00497A] px-5 py-2">Find Jobs</Button>
+          <Button className="hidden lg:inline-flex bg-[#005B94] hover:bg-[#00497A] text-white font-semibold px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 ease-in-out transform hover:-translate-y-0.5">
+            Find Jobs
+          </Button>
 
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -96,7 +102,9 @@ export default function ClientHeader() {
                   <Button className="w-full bg-[#FF8552] hover:bg-[#E5784A] text-white font-semibold py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 ease-in-out transform hover:-translate-y-0.5">
                     Post a Job
                   </Button>
-                  <Button className="w-full bg-[#005B94] hover:bg-[#00497A]">Find Jobs</Button>
+                  <Button className="w-full bg-[#005B94] hover:bg-[#00497A]">
+                    Find Jobs
+                  </Button>
                 </div>
               </nav>
             </SheetContent>
@@ -104,6 +112,5 @@ export default function ClientHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }
-
