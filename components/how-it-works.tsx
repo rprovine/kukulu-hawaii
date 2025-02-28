@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Store, Search, Handshake } from "lucide-react"
+import { Store, Search, UserPlus } from "lucide-react"
 
 export default function HowItWorks() {
   return (
@@ -43,7 +43,7 @@ export default function HowItWorks() {
           <Card className="bg-white p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
             <CardContent className="p-0">
               <div className="feature-icon w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mb-6">
-                <Handshake className="w-6 h-6" />
+                <UserPlus className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">3. Connect & Grow</h3>
               <p className="text-gray-600">
